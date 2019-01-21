@@ -38,17 +38,15 @@ var checkForMatch = function () {
 
 var flipCard = function() {
 	var cardId = this.getAttribute("data-id");
-	//cardsInPlay.push 
+	cardsInPlay.push(cards[cardId].rank);
 	this.setAttribute('src', cards[cardId].cardImage);
 if (cardsInPlay.length === 2) {
-	console.log("this is true");
-}
-checkForMatch()
-console.log("User flipped " + cards[cardId].rank);
-console.log(cards[cardId].cardImage);
-console.log(cards[cardId].suit);
+	checkForMatch();
+	console.log("User flipped " + cards[cardId].rank);
+	console.log(cards[cardId].cardImage);
+	console.log(cards[cardId].suit);
+	}
 
-cardsInPlay.push(cards[cardId].rank);
 }
 
 var createBoard = function () {
@@ -58,7 +56,7 @@ var createBoard = function () {
 		cardElement.setAttribute('data-id', i);
 		cardElement.addEventListener('click', flipCard);
 		document.getElementById('game-board').appendChild(cardElement);
-	}\
+	}
 }
 
-createBoard()
+createBoard();
